@@ -1,0 +1,28 @@
+1. doGet()
+  当浏览器使用get方式提交数据的时候，servlet需要提供doGet()方法
+
+  哪些是get方式呢？
+
+  1) form默认的提交方式
+  2) 如果通过一个超链访问某个地址
+  3) 如果在地址栏直接输入某个地址
+  4) ajax指定使用get方式的时候
+ 
+ 
+2. doPost()
+  当浏览器使用post方式提交数据的时候，servlet需要提供doPost()方法
+
+  哪些是get方式呢？
+
+  1) 在form上显示设置 method="post"的时候
+  2) ajax指定post方式的时候
+  
+  
+3. service()
+  LoginServlet继承了HttpServlet,同时也继承了一个方法
+  service(HttpServletRequest , HttpServletResponse )
+
+  实际上，在执行doGet()或者doPost()之前，都会先执行service()
+  由service()方法进行判断，到底该调用doGet()还是doPost()
+  可以发现，service(), doGet(), doPost() 三种方式的参数列表都是一样的。
+  所以，有时候也会直接重写service()方法，在其中提供相应的服务，就不用区分到底是get还是post了。
